@@ -2,43 +2,56 @@
 
 
 
-// ```json
-// {
-//   "name":"Ahmed",
-//   "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-//   "scores":[
-//       5,
-//       1,
-//       4,
-//       4,
-//       5,
-//       1,
-//       2,
-//       5,
-//       4,
-//       1
-//     ]
-// }
-// ```
-let friendsArrayofObjects = [{
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
-  }, {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
-  }, {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Knight",
-    age: 60,
-    forcePoints: 1350
-  }];
+let friendsArrayofObjects =[
+{
+  "name":"Kyle B.",
+  "photo":"https://i.kinja-img.com/gawker-media/image/upload/s--Tg_qqR3r--/c_scale,f_auto,fl_progressive,q_80,w_800/dnmtn4ksijwyep0xmljk.jpg",
+  "scores":[
+      5,
+      1,
+      4,
+      4,
+      5,
+      1,
+      2,
+      5,
+      4,
+      1
+    ]
+},
+{
+  "name":"Different C.",
+  "photo":"https://pbs.twimg.com/profile_images/1717956431/BP-headshot-fb-profile-photo_400x400.jpg",
+  "scores":[
+      5,
+      2,
+      1,
+      2,
+      5,
+      1,
+      2,
+      5,
+      4,
+      1
+    ]
+},
+{
+  "name":"Different D.",
+  "photo":"https://pbs.twimg.com/profile_images/1717956431/BP-headshot-fb-profile-photo_400x400.jpg",
+  "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+}];
+
 
 // 6. Determine the user's most compatible friend using the following as a guide:
 
@@ -57,4 +70,6 @@ let friendsArrayofObjects = [{
 
 
 // http://www.tutorialsteacher.com/nodejs/nodejs-module-exports
+
+
 module.exports = friendsArrayofObjects;

@@ -165,4 +165,4 @@ let friendsArrayofObjects =[
 }];
 
 // http://www.tutorialsteacher.com/nodejs/nodejs-module-exports
-module.exports = friendsArrayofObjects;
+module.exports = friendsArrayofObjects; 

@@ -29,7 +29,7 @@ app.post('/friends', function (req, res) {
 
     // assigning webpage input scores into a variable
     let newFriendScores = req.body.scores;
-
+    console.log(newFriendScores);
     // an array to hold the differences of each friend's score between each friends array.
     let allDifferencesArray = [];
 
@@ -46,24 +46,29 @@ app.post('/friends', function (req, res) {
         // push each difference score to the end of allDifferencesArray.
         allDifferencesArray.push(differenceScore);
     }
-    let currentMatch = "";
+    
     console.log(allDifferencesArray);
-    function closestFriend(arr){
-        var curr = arr[0];
-        var diff = Math.abs (0 - curr);
-        for (var val = 0; val < arr.length; val++) {
-            var newdiff = Math.abs (0 - arr[val]);
+
+    function closestFriend(array){
+        var closestDifference = array[0];
+        var diff = Math.abs (0 - closestDifference);
+        let indexOfMatch;
+
+        for (var index = 0; index < array.length; index++) {
+            var newdiff = Math.abs (0 - array[index]);
             if (newdiff < diff) {
                 diff = newdiff;
-                curr = arr[val];
+                closestDifference = array[index];
+                indexOfMatch = index+1;
             }
         }
-        return curr;
+        return indexOfMatch;
     }
     
 
-    console.log(closestFriend(allDifferencesArray.slice(1)));
-    res.send(friends);
+    // console.log(closestFriend(allDifferencesArray.slice(1)));
+    console.log(friends[closestFriend(allDifferencesArray.slice(1))]);
+    res.send(friends[closestFriend(allDifferencesArray.slice(1))]);
 }) 
 
 

@@ -12,7 +12,7 @@ app.get("/", function(req,res) {
 app.get("/survey", function(req, res){
     console.log("/Survey route...");
     res.sendFile(path.join(__dirname, "../public/survey.html"));
-})
+});
 
 // Catch all
 app.get("*", function(req,res) {

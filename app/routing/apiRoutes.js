@@ -1,35 +1,23 @@
+// Dependencies
 const friends = require("../data/friends");
 const express = require("express");
 const app = express();
 
+
+//GET
 app.get('/friends', function(req, res){
     res.send(friends);
 })
 
-//    * A POST routes `/api/friends`. 
-//          This will be used to handle incoming survey results. 
-//          This route will also be used to handle the compatibility logic.
-// 6. Determine the user's most compatible friend using the following as a guide:
-
-//    * With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
-//      * Example:
-//        * User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-//        * User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
-//        * Total Difference: **2 + 1 + 2 =** **_5_**
-//    * Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on.
-//    * The closest match will be the user with the least amount of difference.
-
-// 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-//    * The modal should display both the name and picture of the closest match.
-
+// POST
 app.post('/friends', function (req, res) {
 
     // push new friend into the friends array at the beginning [0]
-    friends.unshift(req.body); 
-
+    // friends.unshift(req.body); 
+    friends.unshift(req.body);
+    
     // assigning webpage input scores into a variable
     let newFriendScores = req.body.scores;
-    console.log(newFriendScores);
     // an array to hold the differences of each friend's score between each friends array.
     let allDifferencesArray = [];
 
@@ -46,15 +34,15 @@ app.post('/friends', function (req, res) {
         // push each difference score to the end of allDifferencesArray.
         allDifferencesArray.push(differenceScore);
     }
-    
-    console.log(allDifferencesArray);
 
+    // Returns the index number of the closest number difference between 
     function closestFriend(array){
         var closestDifference = array[0];
         var diff = Math.abs (0 - closestDifference);
-        let indexOfMatch;
-
+        // variable to hold the number for the index i will use to match the friend.
+        let indexOfMatch = 0;
         for (var index = 0; index < array.length; index++) {
+            // variable to track 
             var newdiff = Math.abs (0 - array[index]);
             if (newdiff < diff) {
                 diff = newdiff;
@@ -65,19 +53,8 @@ app.post('/friends', function (req, res) {
         return indexOfMatch;
     }
     
-
-    // console.log(closestFriend(allDifferencesArray.slice(1)));
-    console.log(friends[closestFriend(allDifferencesArray.slice(1))]);
+    //send the friend with the index of the person with the least amount of difference in scores.
     res.send(friends[closestFriend(allDifferencesArray.slice(1))]);
-}) 
+}); 
 
-
- // The return on this function goes to the data for the $("#match-name") and $("#match-img")
 module.exports = app;
-
-// Input  : Math.abs(-4)
-// Output : 4
-
-// https://www.diffen.com/difference/GET-vs-POST-HTTP-Requests
-// https://expressjs.com/en/guide/routing.html
-

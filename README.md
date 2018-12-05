@@ -1,12 +1,12 @@
 # Friend Finder - Node and Express Servers
 
-### Overview
+#### Overview
 -Compatibility-based "FriendFinder" application.
 -A full-stack site which will take in results from users' surveys. 
 -Compare their answers with those from other users. 
 -The app will then display the name and picture of the user with the best overall match.
 
-##### Deployed to [Heroku](https://aqueous-crag-80432.herokuapp.com/).
+#### Deployed to ## [Heroku](https://aqueous-crag-80432.herokuapp.com/).
 
 #### Technology Used
 * Node.js
